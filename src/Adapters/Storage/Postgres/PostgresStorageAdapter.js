@@ -620,8 +620,8 @@ export class PostgresStorageAdapter implements StorageAdapter {
     });
   }
 
-  setIndexesWithSchemaFormat(className: string, submittedIndexes: any, existingIndexes: any = {}, fields: any, conn: any): Promise<void> {
-    conn = conn || this._client;
+  setIndexesWithSchemaFormat(className: string, submittedIndexes: any, existingIndexes: any = {}, fields: any, client: ?any): Promise<void> {
+    const conn = client || this._client;
     if (submittedIndexes === undefined) {
       return Promise.resolve();
     }
